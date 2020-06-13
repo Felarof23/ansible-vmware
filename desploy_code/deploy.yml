@@ -3,7 +3,6 @@
   vars_files:
     - vm_vars.yml
   hosts: "{{ ip }}"
-  
   tasks:
     - name: Clone git
       shell: git clone 
