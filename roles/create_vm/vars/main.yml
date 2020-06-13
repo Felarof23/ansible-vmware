@@ -1,0 +1,23 @@
+---
+# Global Settings
+- vcenter_server: 10.16.102.1
+- vcenter_user: eliseo@vsphere.local
+- vcenter_pass: T3S2020.
+- datacenter: Asia-Datacenter1
+- cluster: Asia-Cluster1
+
+# ESXi settings
+- esxi_hostname: 10.76.33.6
+- esxi_username: root
+- esxi_password: esxi123
+
+# VM settings
+- vm_name: vm_from_ansible
+- template_name: ubuntu_t
+- datastore: ds_226_3
+- network: VM Network
+- folder: /Asia-Datacenter1/vm/
+- dns_server: 8.8.8.8
+
+# Snapshot settings
+- snapshot: fresh_installation
