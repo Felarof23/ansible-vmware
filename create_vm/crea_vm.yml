@@ -50,8 +50,8 @@
         snapshot_name: "{{ snapshot }}"
       register: snapshot_result
 
-      - debug:
-        var: snapshot_result
+    - debug:
+      var: snapshot_result
 
     # - name: Assert that VM snapshot is created
     #   assert:
