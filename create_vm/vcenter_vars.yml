@@ -16,7 +16,7 @@
 - template_name: web-develop-template
 - datastore: ESX_LOCAL_01
 - network: T3STM_LAN
-- folder: /DC_T3SLAB/Demo-AnsibleTower/
+- folder: Demo-AnsibleTower
 - ip: 10.16.101.110
 - netmask: 255.255.255.0
 - gateway: 10.16.101.254
