@@ -17,7 +17,7 @@
 - datastore: ESX_LOCAL_01
 - network: T3STM_LAN
 - folder: Demo-AnsibleTower
-- ip: 10.16.101.110
+- ip: 10.16.101.113
 - netmask: 255.255.255.0
 - gateway: 10.16.101.254
 - dns_server: 10.16.101.84
