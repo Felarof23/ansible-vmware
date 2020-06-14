@@ -15,16 +15,23 @@
         validate_certs: no 
         folder: "{{ folder }}"
         datacenter: "{{ datacenter }}"
-        # networks:
-        #   - name: "{{ network }}"
+        networks:          
+        - name: "{{ network }}"
+          mac: "{{ mac_address }}"
         #     ip: "{{ ip }}"
         #     netmask: "{{ netmask }}"
         #     gateway: "{{ gateway }}"
         # cluster: "{{ cluster }}"
         # customization:
-        #   dns_servers: "{{ dns_server }}"
+        #   dns_servers: 
+        #    - "{{ dns_server01 }}"
+        #    - "{{ dns_server02 }}"
         wait_for_ip_address: yes
+      delegate_to: localhost
       register: vm_result
+    
+    - debug:
+        var: vm_result
 
     - name: Assert that VM is created
       assert:

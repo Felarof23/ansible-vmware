@@ -20,7 +20,9 @@
 - ip: 10.16.101.113
 - netmask: 255.255.255.0
 - gateway: 10.16.101.254
-- dns_server: 10.16.101.84
+- dns_server01: 10.16.101.84
+- dns_server02: 10.16.101.87
+- mac_address: 00:50:56:B7:22:7C
 
 # Snapshot settings
 - snapshot: fresh_installation
