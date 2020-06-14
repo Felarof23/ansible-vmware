@@ -26,8 +26,8 @@
         #   dns_servers: 
         #    - "{{ dns_server01 }}"
         #    - "{{ dns_server02 }}"
-        wait_for_ip_address: yes
-      delegate_to: localhost
+        # wait_for_ip_address: yes
+      # delegate_to: localhost
       register: vm_result
     
     - debug:
