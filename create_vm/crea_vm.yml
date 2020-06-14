@@ -51,7 +51,7 @@
       register: snapshot_result
 
     - debug:
-      var: snapshot_result
+        var: snapshot_result
 
     # - name: Assert that VM snapshot is created
     #   assert:
