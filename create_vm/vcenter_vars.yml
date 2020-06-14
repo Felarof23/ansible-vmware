@@ -1,26 +1,26 @@
 ---
 # Global Settings
-- vcenter_server: 10.16.102.1
-- vcenter_user: eliseo@vsphere.local
+- vcenter_server: 10.16.102.52
+- vcenter_user: eliseo@t3stm.vmw
 - vcenter_pass: T3S2020.
-- datacenter: Asia-Datacenter1
-- cluster: Asia-Cluster1
+- datacenter: DC_T3SLAB
+- cluster: CL_T3SLAB
 
 # ESXi settings
-- esxi_hostname: 10.76.33.6
-- esxi_username: root
-- esxi_password: esxi123
+# - esxi_hostname: 10.16.102.31
+# - esxi_username: root
+# - esxi_password: esxi123
 
 # VM settings
 - vm_name: vm_from_ansible
-- template_name: ubuntu_t
-- datastore: ds_226_3
-- network: VM Network
-- folder: /Asia-Datacenter1/vm/
-- ip: 10.16.102.1
+- template_name: web-develop-template
+- datastore: ESX_LOCAL_01
+- network: T3STM_LAN
+- folder: /DC_T3SLAB/Demo-AnsibleTower/
+- ip: 10.16.101.110
 - netmask: 255.255.255.0
-- gateway: 10.16.102.1
-- dns_server: 8.8.8.8
+- gateway: 10.16.101.254
+- dns_server: 10.16.101.84
 
 # Snapshot settings
 - snapshot: fresh_installation
