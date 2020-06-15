@@ -1,9 +1,10 @@
+---
 - name: Deploy code
   gather_facts: no
   vars_files:
     - vm_vars.yml
   hosts: "{{ vm_name }}"
-  tasks:
+  tasks:   
 
     # - name: Create a virtual machine {{ vm_name }} snapshot name {{ snapshot }}
     #   vmware_guest_snapshot:

@@ -15,9 +15,11 @@
         validate_certs: no 
         folder: "{{ folder }}"
         datacenter: "{{ datacenter }}"
+        tag_name: Demo_WEB
+        tag_description: Demo siple web CI/CD
         networks:          
         - name: "{{ network }}"
-          mac: "{{ mac_address }}"
+          type: dhcp
         #     ip: "{{ ip }}"
         #     netmask: "{{ netmask }}"
         #     gateway: "{{ gateway }}"
@@ -31,8 +33,12 @@
       delegate_to: localhost
       register: vm_result
     
-    - debug:
-        var: vm_result
+    # - debug:
+    #     var: vm_result
+
+    - name: IP address info
+      debug:
+        msg: "{{ vm_result.instance.ipv4 }}"
 
     # - name: Assert that VM is created
     #   assert:
@@ -58,3 +64,10 @@
     #   assert:
     #     that:
     #       - "snapshot_result.changed"
+
+    - name: gather list
+      set_fact:
+        vmlist: "{{ lookup('env','vcenter_host') }}"
+
+    - debug:
+        var: vars.groups.all
