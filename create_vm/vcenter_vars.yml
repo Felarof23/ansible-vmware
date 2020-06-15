@@ -22,4 +22,4 @@
 - dns_server02: 10.16.101.87
 
 # Snapshot settings
-- snapshot: fresh_installation
+- snapshot: "snapshot-{{ date }}"

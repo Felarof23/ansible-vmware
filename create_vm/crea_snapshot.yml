@@ -1,0 +1,16 @@
+---
+- name: Guest Creation
+  gather_facts: no
+  vars_files:
+    - vcenter_vars.yml
+  hosts: localhost
+  tasks:
+    - name: Create a virtual machine {{ vm_name }} snapshot name {{ snapshot }}
+      vmware_guest_snapshot:
+        name: "{{ vm_name }}"
+        hostname: "{{ vcenter_server }}"
+        validate_certs: False
+        folder: "{{ folder }}"
+        datacenter: "{{ datacenter }}"
+        snapshot_name: "{{ snapshot }}"
+      register: snapshot_result
