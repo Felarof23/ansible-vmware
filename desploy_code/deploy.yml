@@ -6,14 +6,6 @@
     - vm_vars.yml
   
   tasks:
-    - name: Gathering facts
-      setup:
-      retries: 30
-      delay: 3
-      register: result
-      until: result.rc == 0
-      ignore_errors: yes
-
     - name: Comprobando que exista el directorio
       file:
         dest: "{{ git_folder }}"
@@ -38,8 +30,3 @@
         dest: "{{ git_folder }}"
         update: yes
         force: yes
-
-    - name: restart apache2 service
-      service:
-        name: httpd
-        state: restarted
