@@ -8,11 +8,17 @@
       register: st
 
     - name: Clone git
-      shell: git clone https://github.com/Felarof23/simple-web.git /var/www/html
+      git:
+        repo: 'https://github.com/Felarof23/simple-web.git'
+        dest: /var/www/html
+        clone: yes
       when: not st.stat.exists
     
-    - name: Fetch code
-      shell: git fetch https://github.com/Felarof23/simple-web.git /var/www/html
+    - name: Update code
+      git:
+        repo: 'https://github.com/Felarof23/simple-web.git'
+        dest: /var/www/html
+        update: yes
 
     - name: restart apache2 service
       service:
