@@ -30,6 +30,7 @@
         repo: 'https://github.com/Felarof23/simple-web.git'
         dest: "{{ git_folder }}"
         update: yes
+        force: yes
 
     - name: restart apache2 service
       service:
