@@ -32,13 +32,6 @@
       delegate_to: localhost
       register: vm_result
     
-    # - name: gather list
-    #   set_fact:
-    #     vmlist: "{{ lookup('env','vcenter_host') }}"
-
-    # - debug:
-    #     var: vars.groups.all
-
     - name: IP address info
       debug:
         msg: "{{ vm_result.instance.ipv4 }}"

@@ -31,12 +31,6 @@
         dest: "{{ git_folder }}"
         update: yes
 
-    - name: Copiar a www
-      copy:
-        src: "{{ git_folder }}/"
-        dest: /var/www/html
-        remote_src: yes
-
     - name: restart apache2 service
       service:
         name: httpd
