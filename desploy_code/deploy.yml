@@ -1,6 +1,6 @@
 ---
 - name: Deploy code
-  gather_facts: no
+  gather_facts: yes
   hosts: localhost
   tasks:   
     - name: Comprobando que exista el directorio
