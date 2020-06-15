@@ -32,11 +32,11 @@
       delegate_to: localhost
       register: vm_result
     
-    - name: IP address info
-      debug:
-        msg: "{{ vm_result.instance.ipv4 }}"
+    # - name: IP address info
+    #   debug:
+    #     msg: "{{ vm_result.instance.ipv4 }}"
 
-    - name: Assert that VM is created
-      assert:
-        that:
-          - "vm_result.changed"
+    # - name: Assert that VM is created
+    #   assert:
+    #     that:
+    #       - "vm_result.changed"
