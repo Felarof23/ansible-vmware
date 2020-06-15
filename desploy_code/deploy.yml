@@ -1,7 +1,8 @@
 ---
 - name: Deploy code
+  remote_user: root
   gather_facts: yes
-  hosts: localhost
+  hosts: 10.16.101.113
   vars_files:
     - vm_vars.yml
   tasks:   
