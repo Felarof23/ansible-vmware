@@ -4,15 +4,15 @@
   hosts: localhost
   tasks:   
     - stat:
-        path: /var/www/simple-web
+        path: /var/www/html/index.html
       register: st
 
     - name: Clone git
-      shell: git clone https://github.com/Felarof23/simple-web.git /var/www/
-      when: st.stat.exists
+      shell: git clone https://github.com/Felarof23/simple-web.git /var/www/html/
+      when: not st.stat.exists
     
     - name: Fetch code
-      shell: git fetch https://github.com/Felarof23/simple-web.git /var/www/simple-web
+      shell: git fetch https://github.com/Felarof23/simple-web.git /var/www/html/
 
     - name: restart apache2 service
       shell: rc-service apache2 restart
