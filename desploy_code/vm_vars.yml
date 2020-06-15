@@ -9,4 +9,4 @@
 - cluster: CL_T3SLAB
 
 # Snapshot settings
-- snapshot: "snapshot-{{ date }}""
+- snapshot: "snapshot-{{ date }}"

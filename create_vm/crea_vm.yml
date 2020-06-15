@@ -27,6 +27,7 @@
         #    - "{{ dns_server01 }}"
         #    - "{{ dns_server02 }}"
         # wait_for_ip_address: yes
+        state: poweredon
       # delegate_to: localhost
       register: vm_result
     
