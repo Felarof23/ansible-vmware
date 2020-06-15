@@ -31,13 +31,13 @@
       delegate_to: localhost
       register: vm_result
     
-    # - debug:
-    #     var: vm_result
+    - debug:
+        var: vm_result
 
-    - name: Assert that VM is created
-      assert:
-        that:
-          - "vm_result.changed"
+    # - name: Assert that VM is created
+    #   assert:
+    #     that:
+    #       - "vm_result.changed"
 
     # - name: Create a virtual machine {{ vm_name }} snapshot name {{ snapshot }}
     #   vmware_guest_snapshot:
