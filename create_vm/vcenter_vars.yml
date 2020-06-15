@@ -1,8 +1,9 @@
 ---
 # Global Settings
 - vcenter_server: 10.16.102.52
-- vcenter_user: eliseo@t3stm.vmw
-- vcenter_pass: T3S2020.
+# - vcenter_user: eliseo@t3stm.vmw
+# - vcenter_pass: T3S2020.
+
 - datacenter: DC_T3SLAB
 - cluster: CL_T3SLAB
 
