@@ -1,8 +1,32 @@
-- name: Guest Creation
+- name: Deploy code
   gather_facts: no
   vars_files:
     - vm_vars.yml
-  hosts: "{{ ip }}"
+  hosts: "{{ vm_name }}"
   tasks:
+
+    - name: Create a virtual machine {{ vm_name }} snapshot name {{ snapshot }}
+      vmware_guest_snapshot:
+        name: "{{ vm_name }}"
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: False
+        folder: "{{ folder }}"
+        datacenter: "{{ datacenter }}"
+        snapshot_name: "{{ snapshot }}"
+      register: snapshot_result
+
+    - stat:
+        path: /var/www/htdocs/simple-web
+      register: st
+
     - name: Clone git
-      shell: git clone 
+      shell: git clone https://github.com/Felarof23/simple-web.git
+      when: st.stat.isdir is defined
+    
+    - name: Fetch code
+      shell: git fetch https://github.com/Felarof23/simple-web.git
+
+    - name: restart apache2 service
+      shell: rc-service apache2 restart
