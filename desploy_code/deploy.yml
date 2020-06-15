@@ -18,15 +18,15 @@
       register: snapshot_result
 
     - stat:
-        path: /var/www/htdocs/simple-web
+        path: /var/www/simple-web
       register: st
 
     - name: Clone git
-      shell: git clone https://github.com/Felarof23/simple-web.git
-      when: st.stat.isdir is defined
+      shell: git clone https://github.com/Felarof23/simple-web.git /var/www/
+      when: st.stat.exists
     
     - name: Fetch code
-      shell: git fetch https://github.com/Felarof23/simple-web.git
+      shell: git fetch https://github.com/Felarof23/simple-web.git /var/www/simple-web
 
     - name: restart apache2 service
       shell: rc-service apache2 restart
