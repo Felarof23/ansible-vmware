@@ -2,30 +2,38 @@
 - name: Deploy code
   gather_facts: yes
   hosts: localhost
+  vars_files:
+    - vm_vars.yml
   tasks:   
     - name: Comprobando que exista el directorio
       file:
-        dest: /var/www/html
+        dest: "{{ git_folder }}"
         state: directory
         mode: "u=rwx,g=rx,o=rx"
         recurse: yes        
 
     - stat:
-        path: /var/www/html/index.html
+        path: "{{ git_folder }}"/index.html
       register: st
 
     - name: Clone git
       git:
         repo: 'https://github.com/Felarof23/simple-web.git'
-        dest: /var/www/html
+        dest: "{{ git_folder }}"
         clone: yes
       when: not st.stat.exists
     
     - name: Update code
       git:
         repo: 'https://github.com/Felarof23/simple-web.git'
-        dest: /var/www/html
+        dest: "{{ git_folder }}"
         update: yes
+
+    - name: Copiar a www
+      copy:
+        src: "{{ git_folder }}/"
+        dest: /var/www/html
+        remote_src: yes
 
     - name: restart apache2 service
       service:
