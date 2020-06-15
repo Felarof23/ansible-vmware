@@ -15,19 +15,16 @@
         validate_certs: no 
         folder: "{{ folder }}"
         datacenter: "{{ datacenter }}"
-        tag_name: Demo_WEB
-        tag_description: Demo siple web CI/CD
         networks:          
         - name: "{{ network }}"
-          type: dhcp
-        #     ip: "{{ ip }}"
-        #     netmask: "{{ netmask }}"
-        #     gateway: "{{ gateway }}"
-        # cluster: "{{ cluster }}"
-        # customization:
-        #   dns_servers: 
-        #    - "{{ dns_server01 }}"
-        #    - "{{ dns_server02 }}"
+          type: static
+          ip: "{{ ip }}"
+          netmask: "{{ netmask }}"
+          gateway: "{{ gateway }}"
+          dns_servers: 
+          - "{{ dns_server01 }}"
+          - "{{ dns_server02 }}"
+        cluster: "{{ cluster }}"
         # wait_for_ip_address: yes
         state: poweredon
       delegate_to: localhost
