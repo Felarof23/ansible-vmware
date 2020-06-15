@@ -4,9 +4,8 @@
   hosts: develop
   vars_files:
     - vm_vars.yml
-  tasks:   
-    - ping:
-
+  
+  tasks:
     - name: Comprobando que exista el directorio
       file:
         dest: "{{ git_folder }}"
