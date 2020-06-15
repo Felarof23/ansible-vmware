@@ -2,18 +2,17 @@
 - name: Deploy code
   gather_facts: no
   hosts: localhost
-  become: yes
   tasks:   
     - stat:
         path: /var/www/html/index.html
       register: st
 
     - name: Clone git
-      shell: git clone https://github.com/Felarof23/simple-web.git /var/www/html/
+      shell: git clone https://github.com/Felarof23/simple-web.git /var/www/html
       when: not st.stat.exists
     
     - name: Fetch code
-      shell: git fetch https://github.com/Felarof23/simple-web.git /var/www/html/
+      shell: git fetch https://github.com/Felarof23/simple-web.git /var/www/html
 
     - name: restart apache2 service
       service:
