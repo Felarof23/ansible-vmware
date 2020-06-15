@@ -8,7 +8,7 @@
   tasks:
     - name: Gathering facts
       setup:
-      retries: 3
+      retries: 10
       delay: 3
       register: result
       until: result.rc == 0
