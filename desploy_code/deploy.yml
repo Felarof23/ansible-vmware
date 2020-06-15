@@ -7,6 +7,12 @@
         path: /var/www/html/index.html
       register: st
 
+    - name: Comprobando que exista el directorio
+      file:
+        state: directory
+        mode: 0755
+        dest: /var/www/html
+
     - name: Clone git
       git:
         repo: 'https://github.com/Felarof23/simple-web.git'
