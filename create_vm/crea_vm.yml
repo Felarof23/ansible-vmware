@@ -28,8 +28,8 @@
             - "{{ dns_server02 }}"
         cluster: "{{ cluster }}"
         state: poweredon
-        wait_for_ip_address: yes        
-      delegate_to: localhost
+      #   wait_for_ip_address: yes        
+      # delegate_to: localhost
       register: vm_result
     
     # - name: IP address info
