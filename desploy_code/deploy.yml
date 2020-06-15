@@ -1,11 +1,18 @@
 ---
 - name: Deploy code
-  gather_facts: yes
+  gather_facts: no
   hosts: develop
   vars_files:
     - vm_vars.yml
   
   tasks:
+    - name: Gathering facts
+      setup:
+      retries: 3
+      delay: 3
+      register: result
+      until: result.rc == 0
+
     - name: Comprobando que exista el directorio
       file:
         dest: "{{ git_folder }}"
