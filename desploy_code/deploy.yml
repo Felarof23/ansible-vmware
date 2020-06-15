@@ -3,15 +3,16 @@
   gather_facts: no
   hosts: localhost
   tasks:   
+    - name: Comprobando que exista el directorio
+      file:
+        dest: /var/www/html
+        state: directory
+        mode: "u=rwx,g=rx,o=rx"
+        recurse: yes        
+
     - stat:
         path: /var/www/html/index.html
       register: st
-
-    - name: Comprobando que exista el directorio
-      file:
-        state: directory
-        mode: 0755
-        dest: /var/www/html
 
     - name: Clone git
       git:
