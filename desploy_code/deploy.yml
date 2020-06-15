@@ -2,6 +2,7 @@
 - name: Deploy code
   gather_facts: no
   hosts: localhost
+  become: yes
   tasks:   
     - stat:
         path: /var/www/html/index.html
@@ -15,4 +16,6 @@
       shell: git fetch https://github.com/Felarof23/simple-web.git /var/www/html/
 
     - name: restart apache2 service
-      shell: rc-service apache2 restart
+      service:
+        name: httpd
+        state: restarted

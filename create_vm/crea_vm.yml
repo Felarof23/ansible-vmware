@@ -32,41 +32,13 @@
       delegate_to: localhost
       register: vm_result
     
+    # - name: gather list
+    #   set_fact:
+    #     vmlist: "{{ lookup('env','vcenter_host') }}"
+
     # - debug:
-    #     var: vm_result
+    #     var: vars.groups.all
 
     - name: IP address info
       debug:
         msg: "{{ vm_result.instance.ipv4 }}"
-
-    # - name: Assert that VM is created
-    #   assert:
-    #     that:
-    #       - "vm_result.changed"
-
-    # - name: Create a virtual machine {{ vm_name }} snapshot name {{ snapshot }}
-    #   vmware_guest_snapshot:
-    #     name: "{{ vm_name }}"
-    #     hostname: "{{ vcenter_server }}"
-    #     username: "{{ vcenter_user }}"
-    #     password: "{{ vcenter_pass }}"
-    #     validate_certs: False
-    #     folder: "{{ folder }}"
-    #     datacenter: "{{ datacenter }}"
-    #     snapshot_name: "{{ snapshot }}"
-    #   register: snapshot_result
-
-    # - debug:
-    #     var: snapshot_result
-
-    # - name: Assert that VM snapshot is created
-    #   assert:
-    #     that:
-    #       - "snapshot_result.changed"
-
-    - name: gather list
-      set_fact:
-        vmlist: "{{ lookup('env','vcenter_host') }}"
-
-    - debug:
-        var: vars.groups.all

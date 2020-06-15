@@ -4,11 +4,6 @@
 - datacenter: DC_T3SLAB
 - cluster: CL_T3SLAB
 
-# ESXi settings
-# - esxi_hostname: 10.16.102.31
-# - esxi_username: root
-# - esxi_password: esxi123
-
 # VM settings
 - vm_name: vm_from_ansible
 - template_name: web-develop-template
