@@ -1,12 +1,12 @@
 ---
 - name: Deploy code
   gather_facts: yes
-  hosts: 10.16.101.113
+  hosts: develop
   vars_files:
     - vm_vars.yml
   tasks:   
     - ping:
-      
+
     - name: Comprobando que exista el directorio
       file:
         dest: "{{ git_folder }}"
