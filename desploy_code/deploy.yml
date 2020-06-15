@@ -1,7 +1,6 @@
 ---
 - name: Deploy code
   gather_facts: no
-  hosts: localhost
   tasks:   
     - stat:
         path: /var/www/simple-web
