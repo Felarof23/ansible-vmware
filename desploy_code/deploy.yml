@@ -13,7 +13,7 @@
         recurse: yes        
 
     - stat:
-        path: "{{ git_folder }}"/index.html
+        path: "{{ git_folder }}/index.html"
       register: st
 
     - name: Clone git
