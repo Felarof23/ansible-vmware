@@ -1,5 +1,5 @@
 ---
-- name: Guest Creation
+- name: Take Snapshot
   gather_facts: no
   vars_files:
     - vcenter_vars.yml
