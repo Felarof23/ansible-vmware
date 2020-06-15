@@ -17,13 +17,13 @@
         datacenter: "{{ datacenter }}"
         networks:          
         - name: "{{ network }}"
-          type: static
-          ip: "{{ ip }}"
-          netmask: "{{ netmask }}"
-          gateway: "{{ gateway }}"
-          dns_servers: 
-          - "{{ dns_server01 }}"
-          - "{{ dns_server02 }}"
+          # type: static
+          # ip: "{{ ip }}"
+          # netmask: "{{ netmask }}"
+          # gateway: "{{ gateway }}"
+          # dns_servers: 
+          # - "{{ dns_server01 }}"
+          # - "{{ dns_server02 }}"
         cluster: "{{ cluster }}"
         # wait_for_ip_address: yes
         state: poweredon
