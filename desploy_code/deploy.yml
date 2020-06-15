@@ -5,17 +5,17 @@
   hosts: "{{ vm_name }}"
   tasks:
 
-    - name: Create a virtual machine {{ vm_name }} snapshot name {{ snapshot }}
-      vmware_guest_snapshot:
-        name: "{{ vm_name }}"
-        hostname: "{{ vcenter_server }}"
-        username: "{{ vcenter_user }}"
-        password: "{{ vcenter_pass }}"
-        validate_certs: False
-        folder: "{{ folder }}"
-        datacenter: "{{ datacenter }}"
-        snapshot_name: "{{ snapshot }}"
-      register: snapshot_result
+    # - name: Create a virtual machine {{ vm_name }} snapshot name {{ snapshot }}
+    #   vmware_guest_snapshot:
+    #     name: "{{ vm_name }}"
+    #     hostname: "{{ vcenter_server }}"
+    #     username: "{{ vcenter_user }}"
+    #     password: "{{ vcenter_pass }}"
+    #     validate_certs: False
+    #     folder: "{{ folder }}"
+    #     datacenter: "{{ datacenter }}"
+    #     snapshot_name: "{{ snapshot }}"
+    #   register: snapshot_result
 
     - stat:
         path: /var/www/simple-web
