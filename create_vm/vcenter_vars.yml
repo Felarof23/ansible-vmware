@@ -15,6 +15,3 @@
 - gateway: 10.16.101.254
 - dns_server01: 10.16.101.84
 - dns_server02: 10.16.101.87
-
-# Snapshot settings
-- snapshot: "snapshot-{{ date }}"

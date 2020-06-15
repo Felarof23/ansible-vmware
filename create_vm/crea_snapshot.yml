@@ -1,6 +1,6 @@
 ---
 - name: Take Snapshot
-  gather_facts: no
+  gather_facts: yes
   vars_files:
     - vcenter_vars.yml
   hosts: localhost
@@ -12,5 +12,5 @@
         validate_certs: False
         folder: "{{ folder }}"
         datacenter: "{{ datacenter }}"
-        snapshot_name: "{{ snapshot }}"
+        snapshot_name: "snapshot-{{ ansible_date_time.iso8601_basic_short }}"
       register: snapshot_result
